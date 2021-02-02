@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Test</title>
+</head>
+<body>
+
+<h1> Dataframe Analysis Test</h1>
+{% for row in data.iterrows(): %}
+    <tr>
+    <td>{{row[1]["Symbol"]}}</td>
+    <td>{{row[1]["Quantity"]}}</td>
+    <td>{{row[1]["Opening Date"]}}</td>
+    <td>{{row[1]["Type"]}}</td>
+
+
+    </tr>
+<p></p>
+{% endfor %}
+
+
+</body>
+</html>
