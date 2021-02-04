@@ -84,9 +84,8 @@ api.add_resource(AuthorResource)
 
 @app.route("/")
 def home():
-    data = DFCSV("DataConnection/RealizedGLDownload.csv")
-    print (data.data)
-    return render_template("index.html", data = data.data)
+    #data = DFCSV("DataConnection/RealizedGLDownload.csv")
+    return render_template("index.html", data = "hello from the other side")
 
 
 if __name__ == '__main__':
