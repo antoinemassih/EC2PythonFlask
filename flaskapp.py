@@ -18,4 +18,4 @@ class User(db.Model):
 
 @app.route('/')
 def hello():
-    return 'Hello, World!'
+    return 'I made a pipeline change!'
