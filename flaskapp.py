@@ -2,7 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Monkeyhero69@trendchart.cu0jwgiytj6k.us-east-1.rds.amazonaws.com:5432/postgres'
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Monkeyhero69@trendchart.cu0jwgiytj6k.us-east-1.rds.amazonaws.com:5432/postgres'
 db = SQLAlchemy(app)
 
 
@@ -13,3 +14,8 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
