@@ -8,10 +8,8 @@ from resources.alertsResource import AlertListResource
 
 app = Flask(__name__)
 api = Api(app)
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Monkeyhero69@trendchart.cu0jwgiytj6k.us-east-1.rds.amazonaws.com:5432/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Monkeyhero69@trendchart.cu0jwgiytj6k.us-east-1.rds.amazonaws.com:5432/postgres'
 app.config['SQLALCHEMY_ENABLE_POOL_PRE_PING'] = True
-
 db.init_app(app)
 
 
