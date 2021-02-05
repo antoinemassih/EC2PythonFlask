@@ -12,3 +12,7 @@ class NoDBResource(Resource):
     @Route.GET
     def whos(self):
         return "hello"
+
+    @Route.GET
+    def now(self):
+        return "this is another one"
