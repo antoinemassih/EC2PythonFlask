@@ -2,6 +2,8 @@ from flask_restful import reqparse, fields, marshal_with, abort, Resource
 
 from models.alert import Alert
 from models.modeldb import db
+from datetime import datetime
+
 
 
 class AlertListResource(Resource):
@@ -14,7 +16,7 @@ class AlertListResource(Resource):
         'id': fields.Integer,
         'name': fields.String,
         'symbol': fields.String,
-        'timestamp': fields.Integer
+        'timestamp': fields.DateTime
     }
 
     @marshal_with(resource_fields)
@@ -28,7 +30,7 @@ class AlertListResource(Resource):
     def post(self):
         args = self.alert_post_args.parse_args()
 
-        alertitem = Alert(name=args['name'], symbol='AAPL', timestamp=2)
+        alertitem = Alert(name=args['name'], symbol=args['symbol'], timestamp=datetime.now())
         db.session.add(alertitem)
         db.session.commit()
         return alertitem, 201

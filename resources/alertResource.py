@@ -11,7 +11,7 @@ class AlertResource(Resource):
         'id': fields.Integer,
         'name': fields.String,
         'symbol': fields.String,
-        'timestamp': fields.Integer
+        'timestamp': fields.DateTime
     }
 
     @marshal_with(resource_fields)
