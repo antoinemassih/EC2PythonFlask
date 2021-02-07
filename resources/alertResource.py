@@ -4,12 +4,14 @@ from models.alert import Alert
 
 class AlertResource(Resource):
     alert_post_args = reqparse.RequestParser()
-    alert_post_args.add_argument("name", type=str, help="Alert Name", required=True)
     alert_post_args.add_argument("symbol", type=str, help="Alert Symbol", required=True)
 
     resource_fields = {
         'id': fields.Integer,
-        'name': fields.String,
+        'alertMessage': fields.String,
+        'alertType': fields.String,
+        'bearBull': fields.String,
+        'alertValue': fields.Integer,
         'symbol': fields.String,
         'timestamp': fields.DateTime
     }
