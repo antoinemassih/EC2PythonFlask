@@ -10,7 +10,7 @@ class AlertListResource(Resource):
 
     alert_post_args = reqparse.RequestParser()
     alert_post_args.add_argument("symbol", type=str, help="Alert Symbol", required=False)
-    alert_post_args.add_argument("alertString", type=str, help="Alert Symbol", required=True)
+    alert_post_args.add_argument("text", type=str, help="Alert Symbol", required=True)
 
     resource_fields = {
         'id': fields.Integer,
@@ -20,8 +20,7 @@ class AlertListResource(Resource):
         'alertValue': fields.Integer,
         'symbol': fields.String,
         'timeFrame': fields.String,
-        'timestamp': fields.DateTime,
-        'alertString': fields.String
+        'timestamp': fields.DateTime
     }
 
     @marshal_with(resource_fields)
@@ -35,7 +34,7 @@ class AlertListResource(Resource):
     def post(self):
         args = self.alert_post_args.parse_args()
         alertDict = {}
-        jsonString = json.loads(args['alertString'])
+        jsonString = json.loads(args['text'])
         #alertDict = json.load(jsonString)
         print(jsonString['alertType'])
         alertitem = Alert(alertMessage=jsonString['alertMessage'],alertValue=jsonString['alertValue'], symbol=jsonString['symbol'], timestamp=datetime.now(),timeFrame=jsonString['timeFrame'],alertType=jsonString['alertType'],bearBull=jsonString['bearBull'])
